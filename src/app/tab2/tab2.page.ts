@@ -14,6 +14,12 @@ export class Tab2Page {
     this.photos = photoSvc.getPhotos();
   }
 
+  ngOnInit(){
+    this.photoSvc.loadSaved().then(()=>{
+      this.photos = this.photoSvc.getPhotos();
+    });
+  }
+
   public newPhoto(): void{
     this.photoSvc.addNewToGallery();
   }
